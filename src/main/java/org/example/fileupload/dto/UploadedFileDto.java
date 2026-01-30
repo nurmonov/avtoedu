@@ -10,16 +10,13 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class UploadedFileDto {
-    private Integer id;
+    private Long id;
     private String storedFileName;
     private String originalFileName;
     private String contentType;
     private Long fileSize;
-    private String fileUrl;
+    private String fileUrl;        // masalan: http://localhost:8080/files/abc.jpg
     private LocalDateTime uploadDate;
-    private String text;
-    private Integer userId;
-    private String userFullName;
 }
 
 

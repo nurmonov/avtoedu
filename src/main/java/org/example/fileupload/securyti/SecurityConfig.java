@@ -43,7 +43,8 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/api/files/download/**",
                                 "/uploads/**",
-                                "api/files/upload"
+                                "api/files/upload",
+                                "/api/files/upload-multiple"
 
                         ).permitAll()
                         .requestMatchers("/api/admin/**")

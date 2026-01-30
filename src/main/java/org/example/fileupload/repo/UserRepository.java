@@ -21,15 +21,15 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // Optional<User> findByPhoneNumber(String phoneNumber);
     // boolean existsByPhoneNumber(String phoneNumber);
 
-    /**
-     * Userni va uning barcha fayllarini birga yuklab olish (eager fetch)
-     */
-    @Query("""
-    SELECT u FROM User u
-    LEFT JOIN FETCH u.uploadedFiles
-    WHERE u.id = :id
-    """)
-    Optional<User> findByIdWithFiles(@Param("id") Integer id);
+//    /**
+//     * Userni va uning barcha fayllarini birga yuklab olish (eager fetch)
+//     */
+//    @Query("""
+//    SELECT u FROM User u
+//    LEFT JOIN FETCH u.uploadedFiles
+//    WHERE u.id = :id
+//    """)
+//    Optional<User> findByIdWithFiles(@Param("id") Integer id);
 
     // Qo'shimcha qidiruvlar kerak bo'lsa misollar:
     // List<User> findByRole(Role role);

@@ -5,12 +5,10 @@ package org.example.fileupload.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.fileupload.dto.UserCreateRequest;
-import org.example.fileupload.dto.UserProjectsResponse;
 import org.example.fileupload.dto.UserResponse;
 import org.example.fileupload.dto.UserUpdateRequest;
 import org.example.fileupload.entity.User;
 import org.example.fileupload.entity.enums.Role;
-import org.example.fileupload.mapper.UploadedFileMapper;
 import org.example.fileupload.mapper.UserMapper;
 import org.example.fileupload.repo.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,7 +25,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
-    private final UploadedFileMapper uploadedFileMapper;
+//    private final UploadedFileMapper uploadedFileMapper;
     private final FileService fileService;
 
     @Transactional(readOnly = true)

@@ -7,59 +7,48 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+// User.java (qisqacha)
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class User implements UserDetails {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "full_name")
     private String fullName;
-
-
-    @Column( unique = true)
+    @Column(unique = true)
     private String email;
-
-    @Column(nullable = false)
     private String password;
 
-
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Role role;
 
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UploadedFile> uploadedFiles;
-
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<UploadedFile> uploadedFiles = new ArrayList<>();
+//
+//    @ManyToMany(mappedBy = "collaborators")
+//    private List<UploadedFile> sharedProjects = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (role == null) {
-            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-        }
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        return List.of();
     }
 
     @Override
     public String getUsername() {
-        return this.getFullName();
+        return "";
     }
-
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
@@ -67,10 +56,9 @@ public class User implements UserDetails {
         return false;
     }
 
-
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
@@ -78,5 +66,5 @@ public class User implements UserDetails {
         return false;
     }
 
-
+    // UserDetails metodlari (sizda bor)
 }

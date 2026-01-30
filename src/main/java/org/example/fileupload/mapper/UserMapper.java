@@ -7,7 +7,7 @@ import org.mapstruct.*;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = UploadedFileMapper.class)
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
